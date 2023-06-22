@@ -1,0 +1,21 @@
+{
+  "name": "as",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "codeceptjs": "^3.4.1",
+    "codeceptjs-testrail": "^1.10.2",
+    "puppeteer": "^20.4.0"
+  },
+  "devDependencies": {
+    "@codeceptjs/allure-legacy": "^1.0.2",
+    "@testomatio/reporter": "^0.7.6"
+  }
+}

@@ -1,0 +1,9 @@
+
+
+<<< Recorded commands on Tue May 30 2023 16:17:09 GMT+0300 (Eastern European Summer Time)
+I.click({ xpath: './/div[@id="tileCarousel-035-16221TSET"]' })
+I.click({ xpath: '//button[@class="base-swatch size-attribute"]//span[contains(text(), "10/12")]' })
+I.
+
+<<< Recorded commands on Sat Jun 17 2023 17:48:06 GMT+0300 (Eastern European Summer Time)
+I.click({ xpath: '//button[@value="submit-delivery"]' })
