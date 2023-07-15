@@ -7,8 +7,10 @@ module.exports = function() {
     login: async function (email, password) {
   
       this.amOnPage('/');
-      this.click({xpath: '//a[@class="icon plain"]'});
-      this.waitForNavigation(10);
+      this.click({ xpath: '//a[@class="icon plain"]' });
+      this.wait(5);
+      this.refreshPage();
+      this.wait(5);
       this.fillField({xpath: '//input[@id="login-form-email"]'}, email);
       this.fillField({xpath: '//input[@id="login-form-password"]'}, password);
       this.click({xpath: './/button[text()="Login"]'});

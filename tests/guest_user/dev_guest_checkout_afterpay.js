@@ -1,17 +1,16 @@
-const { checkOrder } = require("../../pages/confirmationPage");
 const {
-  creditCardVisa,
-  shippingAddress
+  productId,
+  shippingAddress,
+  afterPay,
 } = require("../../userData/userData");
 
-Feature('checkout');
+Feature("checkout");
 
 Scenario(
-  "guest_checkout_visa",
+  "dev_guest_checkout_afterpay",
   ({
     I,
     homePage,
-    productLandingPage,
     productDetailsPage,
     shoppingBagPage,
     yourInformationPage,
@@ -20,8 +19,7 @@ Scenario(
     confirmationPage,
   }) => {
     homePage.openHomePage();
-    homePage.openPlP();
-    productLandingPage.navigateToProductDetailPage();
+    homePage.searchProduct(productId.id);
     productDetailsPage.addProductToBag();
     productDetailsPage.navigateToShoppingBag();
     shoppingBagPage.navigateToYourInformationStep();
@@ -38,9 +36,11 @@ Scenario(
     );
     yourInformationPage.navigateToShippingPage();
     shippingPage.navigateToPaymentPage();
-    paymentPage.fillOutCreditCardform(creditCardVisa.creditCardNumber, creditCardVisa.expDate, creditCardVisa.cvv);
-    paymentPage.placeOrder();
+    paymentPage.selectAndPlaceOrderWithAfterpay(
+      afterPay.userName,
+      afterPay.password
+    );
     confirmationPage.checkOrder();
+    
   }
 );
-

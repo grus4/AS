@@ -31,11 +31,24 @@ module.exports = {
         '//div[@class="col-12 next-step-button show-desktop"]//button[@value="submit-payment"]',
     },
 
-    elements: {
-      receiptText: {
-        xpath: '//h2[@class="card-header-custom"][contains(text(), "Receipt")]',
-      },
+    continueToAfterpay: {
+      xpath:
+        '//button[@class="btn btn-primary btn-block submit-payment place-order afterpay-styling styled"]',
     },
+
+    continue: { xpath: '//button[@data-testid="login-password-button"]' },
+
+    confirm: {
+      xpath: '//button[@data-dd-action-name="Confirm Checkout Button"]'
+    },
+  },
+
+  elements: {
+    userNamefield: { xpath: '//input[@name="identifier"]' },
+
+    passwordField: { xpath: '//input[@name="password"]' },
+
+    afterPayRadioButton: { xpath: '//label[@id="lb_afterpaytouch"]' },
   },
 
   fillOutCreditCardform(cardNumber, expDate, cvv) {
@@ -50,8 +63,20 @@ module.exports = {
     I.switchTo();
   },
 
+  selectAndPlaceOrderWithAfterpay(username, password) {
+    I.click(this.elements.afterPayRadioButton);
+    I.click(this.buttons.continueToAfterpay);
+    I.wait(16);
+    I.fillField(this.elements.passwordField, password);
+    I.click(this.buttons.continue);
+    I.waitForVisible(this.buttons.confirm, 15);
+    I.click(this.buttons.confirm);
+    I.waitForText("Receipt", 20);
+
+  },
+
   placeOrder() {
     I.click(this.buttons.placeOrder);
-    I.wait(5);
-  }
+    I.waitForText("Receipt", 5);
+  },
 };

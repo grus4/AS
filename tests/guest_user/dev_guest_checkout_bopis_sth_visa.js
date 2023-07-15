@@ -1,13 +1,17 @@
-const { creditCardAmex, shippingAddress } = require("../../userData/userData");
+const {
+  productId,
+  shippingAddress,
+  creditCardVisa,
+  bopis
+} = require("../../userData/userData");
 
 Feature("checkout");
 
 Scenario(
-  "guest_checkout_amex",
+  "dev_guest_checkout_bopis_sth_visa",
   ({
     I,
     homePage,
-    productLandingPage,
     productDetailsPage,
     shoppingBagPage,
     yourInformationPage,
@@ -16,9 +20,8 @@ Scenario(
     confirmationPage,
   }) => {
     homePage.openHomePage();
-    homePage.openPlP();
-    productLandingPage.navigateToProductDetailPage();
-    productDetailsPage.addProductToBag();
+    homePage.searchProduct(productId.id3);
+    productDetailsPage.addBopisAndShipToHomeProductsToBag(bopis.zipCode);
     productDetailsPage.navigateToShoppingBag();
     shoppingBagPage.navigateToYourInformationStep();
     yourInformationPage.fillShippingForm(
@@ -35,9 +38,9 @@ Scenario(
     yourInformationPage.navigateToShippingPage();
     shippingPage.navigateToPaymentPage();
     paymentPage.fillOutCreditCardform(
-      creditCardAmex.creditCardNumber,
-      creditCardAmex.expDate,
-      creditCardAmex.cvv
+      creditCardVisa.creditCardNumber,
+      creditCardVisa.expDate,
+      creditCardVisa.cvv
     );
     paymentPage.placeOrder();
     confirmationPage.checkOrder();

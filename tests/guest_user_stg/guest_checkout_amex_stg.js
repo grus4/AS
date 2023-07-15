@@ -1,12 +1,13 @@
 const {
-  creditCardMasterCard,
+  creditCardAmex,
   shippingAddress,
+  productId,
 } = require("../../userData/userData");
 
 Feature("checkout");
 
 Scenario(
-  "guest_checkout_master_card",
+  "guest_checkout_amex_stg",
   ({
     I,
     homePage,
@@ -18,9 +19,8 @@ Scenario(
     paymentPage,
     confirmationPage,
   }) => {
-    homePage.openHomePage();
-    homePage.openPlP();
-    productLandingPage.navigateToProductDetailPage();
+    homePage.openHomePageStg();
+    homePage.searchProduct(productId.id2);
     productDetailsPage.addProductToBag();
     productDetailsPage.navigateToShoppingBag();
     shoppingBagPage.navigateToYourInformationStep();
@@ -38,9 +38,9 @@ Scenario(
     yourInformationPage.navigateToShippingPage();
     shippingPage.navigateToPaymentPage();
     paymentPage.fillOutCreditCardform(
-      creditCardMasterCard.creditCardNumber,
-      creditCardMasterCard.expDate,
-      creditCardMasterCard.cvv
+      creditCardAmex.creditCardNumber,
+      creditCardAmex.expDate,
+      creditCardAmex.cvv
     );
     paymentPage.placeOrder();
     confirmationPage.checkOrder();

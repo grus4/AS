@@ -38,13 +38,13 @@ module.exports = {
     I.fillField(this.fields.zipCode, zipCode);
     I.fillField(this.fields.emailAddress, emailAddress);
     I.fillField(this.fields.phoneNumber, phoneNumber);
-    I.wait(20);
+    
   },
 
   navigateToShippingPage() {
-    //I.click(this.buttons.continueToShipping);
-    //I.waitForClickable(this.buttons.continueToShipping, 30);
     I.click(this.buttons.continueToShipping);
+    //I.waitForClickable(this.buttons.continueToShipping, 30);
+    //I.click(this.buttons.continueToShipping);
     I.waitForVisible(this.buttons.continueToPayment, 40);
   },
 

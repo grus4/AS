@@ -1,10 +1,8 @@
 const { I } = inject();
 
 module.exports = {
-  //product on dev
-  firstProductTile: { xpath: './/div[@id="tileCarousel-041-16395"]' },
-  //product on stg
-  firstProductTileStg: {
+  
+  firstProductTile: {
     xpath: '//div[@class="row product-grid"]/div[@data-position="1"]',
   },
 
@@ -19,14 +17,6 @@ module.exports = {
 
   navigateToProductDetailPage() {
     I.click(this.firstProductTile);
-    I.waitForNavigation(20);
-    I.waitForVisible(this.buttons.addToBag, 20);
-    I.waitForVisible(this.buttons.sizeSwatch, 10);
-    I.seeElement(this.buttons.sizeSwatch);
-  },
-
-  navigateToProductDetailPageStg() {
-    I.click(this.firstProductTileStg);
     I.waitForNavigation(20);
     I.waitForVisible(this.buttons.addToBag, 20);
     I.waitForVisible(this.buttons.sizeSwatch, 10);

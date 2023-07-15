@@ -1,12 +1,13 @@
 const {
-  creditCardDiscover,
+  creditCardMasterCard,
   shippingAddress,
+  productId,
 } = require("../../userData/userData");
 
 Feature("checkout");
 
 Scenario(
-  "guest_checkout_discover",
+  "dev_guest_checkout_master_card",
   ({
     I,
     homePage,
@@ -19,8 +20,7 @@ Scenario(
     confirmationPage,
   }) => {
     homePage.openHomePage();
-    homePage.openPlP();
-    productLandingPage.navigateToProductDetailPage();
+    homePage.searchProduct(productId.id);
     productDetailsPage.addProductToBag();
     productDetailsPage.navigateToShoppingBag();
     shoppingBagPage.navigateToYourInformationStep();
@@ -38,9 +38,9 @@ Scenario(
     yourInformationPage.navigateToShippingPage();
     shippingPage.navigateToPaymentPage();
     paymentPage.fillOutCreditCardform(
-      creditCardDiscover.creditCardNumber,
-      creditCardDiscover.expDate,
-      creditCardDiscover.cvv
+      creditCardMasterCard.creditCardNumber,
+      creditCardMasterCard.expDate,
+      creditCardMasterCard.cvv
     );
     paymentPage.placeOrder();
     confirmationPage.checkOrder();

@@ -8,9 +8,10 @@ type yourInformationPage = typeof import('./pages/yourInformationPage.js');
 type shippingPage = typeof import('./pages/shippingPage.js');
 type paymentPage = typeof import('./pages/paymentPage.js');
 type confirmationPage = typeof import('./pages/confirmationPage.js');
+type shippingAddressGuestUser = typeof import('./userData/userData.js');
 
 declare namespace CodeceptJS {
-  interface SupportObject { I: I, current: any, productLandingPage: productLandingPage, homePage: homePage, productDetailsPage: productDetailsPage, shoppingBagPage: shoppingBagPage, yourInformationPage: yourInformationPage, shippingPage: shippingPage, paymentPage: paymentPage, confirmationPage: confirmationPage }
+  interface SupportObject { I: I, current: any, productLandingPage: productLandingPage, homePage: homePage, productDetailsPage: productDetailsPage, shoppingBagPage: shoppingBagPage, yourInformationPage: yourInformationPage, shippingPage: shippingPage, paymentPage: paymentPage, confirmationPage: confirmationPage, shippingAddressGuestUser: shippingAddressGuestUser }
   interface Methods extends Puppeteer {}
   interface I extends ReturnType<steps_file> {}
   namespace Translation {

@@ -21,4 +21,6 @@ module.exports = {
     I.waitForNavigation(20);
     I.waitForVisible(this.buttons.continueToPayment, 20);
   },
+
+  
 };

@@ -3,7 +3,7 @@ const { creditCardAmex, registeredUser } = require("../../userData/userData");
 Feature("checkout");
 
 Scenario(
-  "registered_user_checkout_amex",
+  "dev_registered_user_checkout_amex",
   ({
     I,
     homePage,

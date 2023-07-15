@@ -13,10 +13,7 @@ module.exports = {
   },
 
   checkOrder() {
-    //I.click(this.buttons.closePopup);
     I.see('Receipt');
-    //let orderNumber = I.grabTextFrom(this.elements.orderNumber);
-    //I.say("Order Number: " + orderNumber, "red");
     //I.saveScreenshot("order_number.png");
     
   }

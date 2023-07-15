@@ -3,7 +3,7 @@ const { creditCardDiscover, registeredUser } = require("../../userData/userData"
 Feature('checkout');
 
 Scenario(
-  "registered_user_checkout_discover",
+  "dev_registered_user_checkout_discover",
   ({
     I,
     homePage,

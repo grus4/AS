@@ -27,17 +27,32 @@ let shippingAddress = {
   firstName: "Max",
   lastName: "Danish",
   address1: "6705 N Oliphant Ave",
-  addres2: "Apt 2F",
+  addres2: "Apt 2FA",
   city: "Chicago",
   state: "Illinois",
   zipCode: "60631-1880",
-  emailAddress: "popan651@gmail.com",
+  emailAddress: "apatel@ashleystewart.com",
   phoneNumber: "3333333333",
 };
 
 let registeredUser = {
   emailAddress: "popan653@gmail.com",
   password: "Qwert_1234",
+};
+
+let productId = {
+  id: "041-22535XP1",
+  id2: "038-23158XBLK",
+  id3: "041-1060XFYR20",
+};
+
+let bopis = {
+  zipCode: "11216"
+};
+
+let afterPay = {
+  userName: "apatel@ashleystewart.com",
+  password: "AshleyStewart21!!",
 };
 
 
@@ -48,7 +63,10 @@ module.exports = {
   creditCardMasterCard,
   creditCardAmex,
   creditCardDiscover,
-  registeredUser
+  registeredUser,
+  productId,
+  bopis,
+  afterPay
 };
 
 

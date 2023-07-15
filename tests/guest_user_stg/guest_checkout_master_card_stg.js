@@ -1,12 +1,13 @@
 const {
   creditCardMasterCard,
-  registeredUser,
+  shippingAddress,
+  productId,
 } = require("../../userData/userData");
 
 Feature("checkout");
 
 Scenario(
-  "registered_user_checkout_master_card",
+  "guest_checkout_master_card_stg",
   ({
     I,
     homePage,
@@ -18,13 +19,23 @@ Scenario(
     paymentPage,
     confirmationPage,
   }) => {
-    I.login(registeredUser.emailAddress, registeredUser.password);
-    homePage.openHomePage();
-    homePage.openPlP();
-    productLandingPage.navigateToProductDetailPage();
+    homePage.openHomePageStg();
+    homePage.searchProduct(productId.id2);
     productDetailsPage.addProductToBag();
     productDetailsPage.navigateToShoppingBag();
-    shoppingBagPage.navigateToShippingStepRegisteredUser();
+    shoppingBagPage.navigateToYourInformationStep();
+    yourInformationPage.fillShippingForm(
+      shippingAddress.firstName,
+      shippingAddress.lastName,
+      shippingAddress.address1,
+      shippingAddress.addres2,
+      shippingAddress.city,
+      shippingAddress.state,
+      shippingAddress.zipCode,
+      shippingAddress.emailAddress,
+      shippingAddress.phoneNumber
+    );
+    yourInformationPage.navigateToShippingPage();
     shippingPage.navigateToPaymentPage();
     paymentPage.fillOutCreditCardform(
       creditCardMasterCard.creditCardNumber,

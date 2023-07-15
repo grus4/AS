@@ -1,4 +1,7 @@
-const { setHeadlessWhen, setCommonPlugins } = require("@codeceptjs/configure");
+const {
+  setHeadlessWhen,
+  setCommonPlugins
+} = require("@codeceptjs/configure");
 // turn on headless mode when running with HEADLESS=true environment variable
 // export HEADLESS=true && npx codeceptjs run
 setHeadlessWhen(process.env.HEADLESS);
@@ -12,7 +15,7 @@ exports.config = {
   output: "./output",
   helpers: {
     Puppeteer: {
-      //url: 'https://storefront:Ashley2022@staging-na04-ashleystewart.demandware.net/s/AshleyStewart/home/',
+      //url: 'https://storefront:Ashley2022@staging-na04-ashleystewart.demandware.net/s/AshleyStewart',
       url: "https://storefront:Ashley2022@dev.ashleystewart.com",
       show: true,
       windowSize: "1920x1080",
@@ -37,7 +40,9 @@ exports.config = {
 
     confirmationPage: "./pages/confirmationPage.js",
 
-    shippingAddressGuestUser: "./userData/userData.js"
+    shippingAddressGuestUser: "./userData/userData.js",
+
+    searchResultsPage: "./pages/searchResultsPage.js"
   },
   name: "AS",
   plugins: {
@@ -47,7 +52,7 @@ exports.config = {
     },
 
     testomatio: {
-      enabled: false,
+      enabled: true,
       require: "@testomatio/reporter/lib/adapter/codecept",
       apiKey: process.env.TESTOMATIO,
     },
