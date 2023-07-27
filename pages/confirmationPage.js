@@ -13,9 +13,7 @@ module.exports = {
   },
 
   checkOrder() {
-    I.see('Receipt');
-    //I.saveScreenshot("order_number.png");
-    
+    I.see('Receipt'); 
   }
 
 };

@@ -13,7 +13,8 @@ module.exports = function() {
       this.wait(5);
       this.fillField({xpath: '//input[@id="login-form-email"]'}, email);
       this.fillField({xpath: '//input[@id="login-form-password"]'}, password);
-      this.click({xpath: './/button[text()="Login"]'});
+      this.click({ xpath: './/button[text()="Login"]' });
+      this.wait(5);
       this.waitInUrl('/account/?registration=false', 10);
       this.waitForText('Profile', 5);
     },

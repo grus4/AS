@@ -20,7 +20,7 @@ Scenario(
     confirmationPage,
   }) => {
     homePage.openHomePageStg();
-    homePage.searchProduct(productId.id2);
+    homePage.searchProduct(productId.id);
     productDetailsPage.addProductToBag();
     productDetailsPage.navigateToShoppingBag();
     shoppingBagPage.navigateToYourInformationStep();

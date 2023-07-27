@@ -31,7 +31,7 @@ let shippingAddress = {
   city: "Chicago",
   state: "Illinois",
   zipCode: "60631-1880",
-  emailAddress: "apatel@ashleystewart.com",
+  emailAddress: "popan651@gmail.com",
   phoneNumber: "3333333333",
 };
 
@@ -44,6 +44,8 @@ let productId = {
   id: "041-22535XP1",
   id2: "038-23158XBLK",
   id3: "041-1060XFYR20",
+  id4: "041-16395",
+  id5: "010-231079X-05P",
 };
 
 let bopis = {
@@ -54,6 +56,40 @@ let afterPay = {
   userName: "apatel@ashleystewart.com",
   password: "AshleyStewart21!!",
 };
+
+let payPal = {
+  userName: "ddescenza-buyer@gmail.com",
+  password: "Visitor5!",
+};
+
+let ashleyStewartAddress = {
+  firstName: "ASHLEY STEWART",
+  lastName: "TESTA",
+  address1: "3095 LOYALTY CIR",
+  addres2: "",
+  city: "COLUMBUS",
+  state: "Ohio",
+  zipCode: "43219",
+  emailAddress: "apatel@ashleystewart.com",
+  phoneNumber: "3333333333",
+};
+
+let ashleyStewartCard = {
+  number: "5856376066503366",
+};
+
+let promoCode = {
+  orderDiscount: "SFRAX20",
+  shippingDiscount: "SFRA99",
+  id3: "SFRA40",
+};
+
+let productQuantity = {
+  qty2: "2",
+  qty5: "5",
+  qty10: "10"
+
+}
 
 
 
@@ -66,7 +102,12 @@ module.exports = {
   registeredUser,
   productId,
   bopis,
-  afterPay
+  afterPay,
+  payPal,
+  ashleyStewartAddress,
+  ashleyStewartCard,
+  promoCode,
+  productQuantity,
 };
 
 

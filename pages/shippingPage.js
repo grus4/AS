@@ -24,5 +24,6 @@ module.exports = {
     I.wait(5);
     I.waitForVisible(this.fields.iframe, 40);
     I.waitForVisible(this.labels.creditLabel, 30);
+    
   },
 };

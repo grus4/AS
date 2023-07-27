@@ -33,6 +33,8 @@ module.exports = {
     },
 
     storeRadioButton: { xpath: '//input[contains(@id, "Brooklyn-New-York")]' },
+
+    miniBagQty: { xpath: '//span[@class="minicart-quantity"]' },
   },
 
   addProductToBag() {
@@ -41,6 +43,20 @@ module.exports = {
     I.waitForVisible(this.buttons.addToBag, 20);
     I.waitForClickable(this.buttons.addToBag, 20);
     I.click(this.buttons.addToBag);
+  },
+
+  async addMultipleItemsToBag(quantity) {
+    I.refreshPage();
+    I.click(this.buttons.sizeSwatch);
+    let miniBagQty = 0;
+    for (i = 1; i <= quantity; i++) {
+      I.waitForVisible(this.buttons.addToBag, 20);
+      I.waitForClickable(this.buttons.addToBag, 20);
+      I.click(this.buttons.addToBag);
+      I.wait(3);
+    }
+    miniBagQty = await I.grabTextFrom(this.elements.miniBagQty);
+    I.seeTextEquals(miniBagQty, this.elements.miniBagQty);
   },
 
   navigateToShoppingBag() {

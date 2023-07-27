@@ -15,11 +15,13 @@ exports.config = {
   output: "./output",
   helpers: {
     Puppeteer: {
+      //url: "https://www.ashleystewart.com",
       //url: 'https://storefront:Ashley2022@staging-na04-ashleystewart.demandware.net/s/AshleyStewart',
       url: "https://storefront:Ashley2022@dev.ashleystewart.com",
       show: true,
       windowSize: "1920x1080",
     },
+    
   },
   include: {
     I: "./steps_file.js",
@@ -42,7 +44,7 @@ exports.config = {
 
     shippingAddressGuestUser: "./userData/userData.js",
 
-    searchResultsPage: "./pages/searchResultsPage.js"
+    searchResultsPage: "./pages/searchResultsPage.js",
   },
   name: "AS",
   plugins: {
@@ -62,5 +64,12 @@ exports.config = {
     autoDelay: {
       enabled: true,
     },
+
+    mocha: {
+      reporterOptions: {
+        reportDir: "output",
+      }
+    },
+    
   },
 };
