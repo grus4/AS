@@ -46,6 +46,7 @@ let productId = {
   id3: "041-1060XFYR20",
   id4: "041-16395",
   id5: "010-231079X-05P",
+  electronicGiftCardText: "Electronic Gift Card",
 };
 
 let bopis = {
@@ -89,7 +90,15 @@ let productQuantity = {
   qty5: "5",
   qty10: "10"
 
-}
+};
+  
+let giftCardInfo = {
+  giftCardAmount: "200",
+  toName: "Milan",
+  fromName: "Patrick",
+  recepientsEmail: "popan653@gmai.com",
+  giftMessage: "My congratulations!",
+};
 
 
 
@@ -108,6 +117,7 @@ module.exports = {
   ashleyStewartCard,
   promoCode,
   productQuantity,
+  giftCardInfo,
 };
 
 

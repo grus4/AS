@@ -4,6 +4,8 @@ module.exports = {
   buttons: {
     addToBag: { xpath: '//button[normalize-space()="Add to Cart"]' },
 
+    addToBagGiftCard: { css: '.add-to-cart.btn.btn-block.btn-primary.gift-card-add-to-cart' },
+
     sizeSwatch: {
       xpath:
         '//button[@class="base-swatch size-attribute"]//span[contains(text(), "18/20")]',
@@ -35,6 +37,22 @@ module.exports = {
     storeRadioButton: { xpath: '//input[contains(@id, "Brooklyn-New-York")]' },
 
     miniBagQty: { xpath: '//span[@class="minicart-quantity"]' },
+
+    customAmountField: { xpath: '//input[@name="giftCardAmount"]' },
+
+    giftCardToField: { xpath: '//input[@name="giftCardTo"]' },
+
+    giftCardFromField: { xpath: '//input[@name="giftCardFrom"]' },
+
+    giftCardRecepientsEmailField: {
+      xpath: '//input[@name="giftCardFriendsEmail"]',
+    },
+
+    giftCardConfirmRecepientsEmailField: {
+      xpath: '//input[@name="giftCardConfirmFriendsEmail"]',
+    },
+
+    giftCardMessageField: { xpath: '//textarea[@id="giftCardMessage"]' },
   },
 
   addProductToBag() {
@@ -43,6 +61,17 @@ module.exports = {
     I.waitForVisible(this.buttons.addToBag, 20);
     I.waitForClickable(this.buttons.addToBag, 20);
     I.click(this.buttons.addToBag);
+  },
+
+  addElectronicGiftCardToBag(giftCardAmount, toName, fromName, recepientsEmail, giftMessage) {
+    I.refreshPage();
+    I.fillField(this.elements.customAmountField, giftCardAmount);
+    I.fillField(this.elements.giftCardToField, toName);
+    I.fillField(this.elements.giftCardFromField, fromName);
+    I.fillField(this.elements.giftCardRecepientsEmailField, recepientsEmail);
+    I.fillField(this.elements.giftCardConfirmRecepientsEmailField, recepientsEmail);
+    I.fillField(this.elements.giftCardMessageField, giftMessage);
+    I.click(this.buttons.addToBagGiftCard);
   },
 
   async addMultipleItemsToBag(quantity) {

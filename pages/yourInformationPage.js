@@ -43,8 +43,6 @@ module.exports = {
 
   navigateToShippingPage() {
     I.click(this.buttons.continueToShipping);
-    //I.waitForClickable(this.buttons.continueToShipping, 30);
-    //I.click(this.buttons.continueToShipping);
     I.waitForVisible(this.buttons.continueToPayment, 40);
   },
 
