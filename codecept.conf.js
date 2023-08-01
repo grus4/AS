@@ -16,12 +16,11 @@ exports.config = {
   helpers: {
     Puppeteer: {
       //url: "https://www.ashleystewart.com",
-      //url: 'https://storefront:Ashley2022@staging-na04-ashleystewart.demandware.net/s/AshleyStewart',
-      url: "https://storefront:Ashley2022@dev.ashleystewart.com",
+      url: 'https://storefront:Ashley2022@staging-na04-ashleystewart.demandware.net/s/AshleyStewart',
+      //url: "https://storefront:Ashley2022@dev.ashleystewart.com",
       show: true,
       windowSize: "1920x1080",
     },
-    
   },
   include: {
     I: "./steps_file.js",
@@ -56,7 +55,7 @@ exports.config = {
     testomatio: {
       enabled: true,
       require: "@testomatio/reporter/lib/adapter/codecept",
-      apiKey: process.env.TESTOMATIO,
+      apiKey: "tvze5de0cymj",
     },
 
     pauseOnFail: {},
@@ -68,8 +67,7 @@ exports.config = {
     mocha: {
       reporterOptions: {
         reportDir: "output",
-      }
+      },
     },
-    
   },
 };

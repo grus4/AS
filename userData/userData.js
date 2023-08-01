@@ -43,7 +43,7 @@ let registeredUser = {
 let productId = {
   id: "041-22535XP1",
   id2: "038-23158XBLK",
-  id3: "041-1060XFYR20",
+  id3: "041-1298X",
   id4: "041-16395",
   id5: "010-231079X-05P",
   electronicGiftCardText: "Electronic Gift Card",
@@ -86,7 +86,7 @@ let promoCode = {
 };
 
 let productQuantity = {
-  qty2: "2",
+  qty1: "1",
   qty5: "5",
   qty10: "10"
 

@@ -4,10 +4,10 @@ const {
   productId,
 } = require("../../userData/userData");
 
-Feature("checkout");
+Feature("checkout @S8dd64c50");
 
 Scenario(
-  "dev_registered_user_checkout_visa",
+  "dev_registered_user_checkout_visa @Tcffd176e",
   ({
     I,
     homePage,

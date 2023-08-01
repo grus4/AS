@@ -5,9 +5,9 @@ const {
   creditCardVisa,
 } = require("../../userData/userData");
 
-Feature('checkout');
+Feature('checkout @S8dd64c50');
 
-Scenario("dev_registered_user_checkout_gift_card_sth_visa", ({
+Scenario("dev_registered_user_checkout_gift_card_sth_visa @T67ce8cf3", ({
     I,
     homePage,
     productLandingPage,

@@ -4,12 +4,16 @@ module.exports = {
   buttons: {
     addToBag: { xpath: '//button[normalize-space()="Add to Cart"]' },
 
-    addToBagGiftCard: { css: '.add-to-cart.btn.btn-block.btn-primary.gift-card-add-to-cart' },
+    addToBagGiftCard: {
+      css: ".add-to-cart.btn.btn-block.btn-primary.gift-card-add-to-cart",
+    },
 
     sizeSwatch: {
       xpath:
         '//button[@class="base-swatch size-attribute"]//span[contains(text(), "18/20")]',
     },
+
+    plusQty: { xpath: '//button[@class="qty-btn-plus"]' },
 
     shoppingBagIcon: { xpath: './/a[@class="minicart-link"]' },
 
@@ -63,13 +67,22 @@ module.exports = {
     I.click(this.buttons.addToBag);
   },
 
-  addElectronicGiftCardToBag(giftCardAmount, toName, fromName, recepientsEmail, giftMessage) {
+  addElectronicGiftCardToBag(
+    giftCardAmount,
+    toName,
+    fromName,
+    recepientsEmail,
+    giftMessage
+  ) {
     I.refreshPage();
     I.fillField(this.elements.customAmountField, giftCardAmount);
     I.fillField(this.elements.giftCardToField, toName);
     I.fillField(this.elements.giftCardFromField, fromName);
     I.fillField(this.elements.giftCardRecepientsEmailField, recepientsEmail);
-    I.fillField(this.elements.giftCardConfirmRecepientsEmailField, recepientsEmail);
+    I.fillField(
+      this.elements.giftCardConfirmRecepientsEmailField,
+      recepientsEmail
+    );
     I.fillField(this.elements.giftCardMessageField, giftMessage);
     I.click(this.buttons.addToBagGiftCard);
   },
@@ -88,6 +101,24 @@ module.exports = {
     I.seeTextEquals(miniBagQty, this.elements.miniBagQty);
   },
 
+  async addMultipleItemsToBagByClickingPlusButton(quantity) {
+    I.refreshPage();
+    I.click(this.buttons.sizeSwatch);
+    let miniBagQty = 0;
+    for (i = 1; i < quantity; i++) {
+      I.waitForVisible(this.buttons.plusQty, 5);
+      I.waitForClickable(this.buttons.plusQty, 5);
+      I.click(this.buttons.plusQty);
+      I.wait(3);
+    }
+    I.waitForVisible(this.buttons.addToBag, 20);
+    I.waitForClickable(this.buttons.addToBag, 20);
+    I.click(this.buttons.addToBag);
+    I.wait(3);
+    miniBagQty = await I.grabTextFrom(this.elements.miniBagQty);
+    I.seeTextEquals(miniBagQty, this.elements.miniBagQty);
+  },
+  
   navigateToShoppingBag() {
     I.click(this.buttons.shoppingBagIcon);
     I.waitForNavigation(5);

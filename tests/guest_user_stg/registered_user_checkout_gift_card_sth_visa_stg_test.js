@@ -1,13 +1,14 @@
 const {
-  creditCardMasterCard,
   registeredUser,
   productId,
+  giftCardInfo,
+  creditCardVisa,
 } = require("../../userData/userData");
 
-Feature("checkout @S8dd64c50");
+Feature('checkout @S8dd64c50');
 
 Scenario(
-  "dev_registered_user_checkout_master_card @T95c4e46a",
+  "registered_user_checkout_gift_card_sth_visa_stg",
   ({
     I,
     homePage,
@@ -21,15 +22,23 @@ Scenario(
   }) => {
     I.login(registeredUser.emailAddress, registeredUser.password);
     homePage.openHomePage();
+    homePage.searchProduct(productId.electronicGiftCardText);
+    productDetailsPage.addElectronicGiftCardToBag(
+      giftCardInfo.giftCardAmount,
+      giftCardInfo.toName,
+      giftCardInfo.fromName,
+      giftCardInfo.recepientsEmail,
+      giftCardInfo.giftMessage
+    );
     homePage.searchProduct(productId.id);
     productDetailsPage.addProductToBag();
     productDetailsPage.navigateToShoppingBag();
     shoppingBagPage.navigateToShippingStepRegisteredUser();
     shippingPage.navigateToPaymentPage();
     paymentPage.fillOutCreditCardform(
-      creditCardMasterCard.creditCardNumber,
-      creditCardMasterCard.expDate,
-      creditCardMasterCard.cvv
+      creditCardVisa.creditCardNumber,
+      creditCardVisa.expDate,
+      creditCardVisa.cvv
     );
     paymentPage.placeOrder();
     confirmationPage.checkOrder();

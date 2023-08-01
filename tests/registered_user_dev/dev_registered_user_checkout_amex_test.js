@@ -1,9 +1,9 @@
 const { creditCardAmex, registeredUser, productId } = require("../../userData/userData");
 
-Feature("checkout");
+Feature("checkout @S8dd64c50");
 
 Scenario(
-  "dev_registered_user_checkout_amex",
+  "dev_registered_user_checkout_amex @Tb96ef02e",
   ({
     I,
     homePage,
