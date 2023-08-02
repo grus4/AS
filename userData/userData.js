@@ -44,6 +44,7 @@ let productId = {
   id: "041-22535XP1",
   id2: "038-23158XBLK",
   id3: "041-1298X",
+  //054-AS-2516-323 - Butterfly Bra (big amount of inventory)
   id4: "041-16395",
   id5: "010-231079X-05P",
   electronicGiftCardText: "Electronic Gift Card",

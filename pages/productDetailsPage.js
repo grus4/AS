@@ -1,3 +1,5 @@
+const { Mouse } = require("puppeteer");
+
 const { I } = inject();
 
 module.exports = {
@@ -28,6 +30,10 @@ module.exports = {
     },
 
     closePromoPopup: { xpath: '//button[@id="closeIconContainer"]' },
+
+    yes: {
+      xpath: '//button[@class="btn btn-primary cart-delete-confirmation-btn"]',
+    },
   },
 
   elements: {
@@ -59,12 +65,19 @@ module.exports = {
     giftCardMessageField: { xpath: '//textarea[@id="giftCardMessage"]' },
   },
 
+  links: {
+    remove: {
+      xpath: '//button[@class="remove-btn remove-product btn btn-light"]/span',
+    },
+  },
+
   addProductToBag() {
     I.refreshPage();
     I.click(this.buttons.sizeSwatch);
     I.waitForVisible(this.buttons.addToBag, 20);
     I.waitForClickable(this.buttons.addToBag, 20);
     I.click(this.buttons.addToBag);
+    I.wait(3);
   },
 
   addElectronicGiftCardToBag(
@@ -118,7 +131,7 @@ module.exports = {
     miniBagQty = await I.grabTextFrom(this.elements.miniBagQty);
     I.seeTextEquals(miniBagQty, this.elements.miniBagQty);
   },
-  
+
   navigateToShoppingBag() {
     I.click(this.buttons.shoppingBagIcon);
     I.waitForNavigation(5);
@@ -145,4 +158,17 @@ module.exports = {
     I.waitForClickable(this.buttons.addToBag, 5);
     I.click(this.buttons.addToBag);
   },
+
+  removeProductFromTheMiniBag() {
+    I.moveCursorTo(this.buttons.shoppingBagIcon);
+    I.waitForVisible(this.links.remove, 2);
+    I.click(this.links.remove);
+    I.waitForVisible(this.buttons.yes, 2);
+    I.click(this.buttons.yes);
+  },
+
+  async checkTheEmptyMiniBag() {
+    miniBagQty = await I.grabTextFrom(this.elements.miniBagQty);
+    I.seeTextEquals(miniBagQty, this.elements.miniBagQty);
+  }
 };
