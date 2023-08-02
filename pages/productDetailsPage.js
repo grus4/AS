@@ -77,7 +77,7 @@ module.exports = {
     I.waitForVisible(this.buttons.addToBag, 20);
     I.waitForClickable(this.buttons.addToBag, 20);
     I.click(this.buttons.addToBag);
-    I.wait(3);
+    I.wait(5);
   },
 
   addElectronicGiftCardToBag(

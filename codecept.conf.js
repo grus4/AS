@@ -44,6 +44,8 @@ exports.config = {
     shippingAddressGuestUser: "./userData/userData.js",
 
     searchResultsPage: "./pages/searchResultsPage.js",
+
+    header: "./fragments/header.js"
   },
   name: "AS",
   plugins: {
