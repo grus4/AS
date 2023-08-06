@@ -1,11 +1,12 @@
 // in this file you can append custom step methods to 'I' object
+const { header } = require("./fragments/header.js");
 
-module.exports = function() {
+module.exports = function () {
+  
   return actor({
 
-
     login: async function (email, password) {
-  
+
       this.amOnPage('/');
       this.click({ xpath: '//a[@class="icon plain"]' });
       this.wait(5);

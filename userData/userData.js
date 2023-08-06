@@ -38,6 +38,7 @@ let shippingAddress = {
 let registeredUser = {
   emailAddress: "popan653@gmail.com",
   password: "Qwert_1234",
+  invalidPassword: "Qwert_1234567"
 };
 
 let productId = {

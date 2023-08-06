@@ -9,7 +9,6 @@ Scenario(
     homePage.searchProduct(productId.id3);
     productDetailsPage.addProductToBag();
     header.removeProductFromTheMiniBag();
-    productDetailsPage.checkTheEmptyMiniBag();
-      
+    header.checkTheEmptyMiniBag();      
   }
 );

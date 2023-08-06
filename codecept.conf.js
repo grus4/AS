@@ -16,8 +16,8 @@ exports.config = {
   helpers: {
     Puppeteer: {
       //url: "https://www.ashleystewart.com",
-      url: 'https://storefront:Ashley2022@staging-na04-ashleystewart.demandware.net/s/AshleyStewart',
-      //url: "https://storefront:Ashley2022@dev.ashleystewart.com",
+      //url: 'https://storefront:Ashley2022@staging-na04-ashleystewart.demandware.net/s/AshleyStewart',
+      url: "https://storefront:Ashley2022@dev.ashleystewart.com",
       show: true,
       windowSize: "1920x1080",
     },
@@ -45,7 +45,9 @@ exports.config = {
 
     searchResultsPage: "./pages/searchResultsPage.js",
 
-    header: "./fragments/header.js"
+    header: "./fragments/header.js",
+
+    loginPage: "./pages/loginPage.js"
   },
   name: "AS",
   plugins: {
